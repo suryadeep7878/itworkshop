@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manali Itineraries</title>
+  <link rel="stylesheet" href="re.css">
+</head>
+<body>
+
+<section class="itineraries">
+  <h2>Recommended Manali Itineraries</h2>
+
+  <div class="itinerary-tabs">
+    <button class="tab-btn active" onclick="openItinerary(event, '3day')">3-Day Trip</button>
+    <button class="tab-btn" onclick="openItinerary(event, '5day')">5-Day Trip</button>
+    <button class="tab-btn" onclick="openItinerary(event, '7day')">7-Day Trip</button>
+  </div>
+
+  <!-- 3-Day Trip -->
+  <div id="3day" class="itinerary-content active">
+    <h3>3-Day Manali Escape</h3>
+    <div class="day-plan">
+      <h4>Day 1: Arrival & Local Sights</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrive in Manali & hotel check-in</li>
+        <li><strong>Afternoon:</strong> Visit Hadimba Temple & Van Vihar</li>
+        <li><strong>Evening:</strong> Stroll through Mall Road</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2: Solang Valley Adventure</h4>
+      <ul>
+        <li><strong>Morning:</strong> Drive to Solang Valley</li>
+        <li><strong>Afternoon:</strong> Paragliding, ziplining or ATV ride</li>
+        <li><strong>Evening:</strong> Return to Manali & relax at cafe</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 3: Culture & Departure</h4>
+      <ul>
+        <li><strong>Morning:</strong> Visit Manu Temple & Tibetan Monastery</li>
+        <li><strong>Afternoon:</strong> Shop for souvenirs</li>
+        <li><strong>Evening:</strong> Departure</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5-Day Trip -->
+  <div id="5day" class="itinerary-content">
+    <h3>5-Day Manali Adventure</h3>
+    <div class="day-plan">
+      <h4>Day 1: Welcome to Manali</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrival & check-in</li>
+        <li><strong>Afternoon:</strong> Visit Hadimba Temple & Vashisht Hot Springs</li>
+        <li><strong>Evening:</strong> Explore Mall Road</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2: Solang Valley Fun</h4>
+      <ul>
+        <li><strong>Morning:</strong> Drive to Solang Valley</li>
+        <li><strong>Afternoon:</strong> Adventure sports and gondola ride</li>
+        <li><strong>Evening:</strong> Return and café hopping</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 3: Rohtang Pass (Seasonal)</h4>
+      <ul>
+        <li><strong>Morning:</strong> Excursion to Rohtang Pass</li>
+        <li><strong>Afternoon:</strong> Snow activities & photography</li>
+        <li><strong>Evening:</strong> Return to Manali</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 4: Naggar & Art</h4>
+      <ul>
+        <li><strong>Morning:</strong> Visit Naggar Castle & Roerich Art Gallery</li>
+        <li><strong>Afternoon:</strong> River rafting at Beas (optional)</li>
+        <li><strong>Evening:</strong> Chill by riverside café</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 5: Local Culture & Departure</h4>
+      <ul>
+        <li><strong>Morning:</strong> Manu Temple & Tibetan Market</li>
+        <li><strong>Afternoon:</strong> Relax & shop</li>
+        <li><strong>Evening:</strong> Departure</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 7-Day Trip -->
+  <div id="7day" class="itinerary-content">
+    <h3>7-Day Manali Exploration</h3>
+    <div class="day-plan">
+      <h4>Day 1: Arrive in Manali</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrive & check-in</li>
+        <li><strong>Afternoon:</strong> Visit Hadimba Temple & Museum of Himachal Culture</li>
+        <li><strong>Evening:</strong> Walk on Mall Road</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2: Vashisht & Jogini Falls</h4>
+      <ul>
+        <li><strong>Morning:</strong> Vashisht Temple and hot springs</li>
+        <li><strong>Afternoon:</strong> Trek to Jogini Falls</li>
+        <li><strong>Evening:</strong> Relax with dinner and live music café</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 3: Solang Valley Thrills</h4>
+      <ul>
+        <li><strong>Morning:</strong> Ziplining, paragliding or skiing</li>
+        <li><strong>Afternoon:</strong> Snow tubing & gondola ride</li>
+        <li><strong>Evening:</strong> Chill with views at a hilltop café</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 4: Rohtang Pass Expedition</h4>
+      <ul>
+        <li><strong>Morning:</strong> Rohtang Pass adventure (seasonal)</li>
+        <li><strong>Afternoon:</strong> Snow activities and picnic</li>
+        <li><strong>Evening:</strong> Return to Manali</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 5: Naggar Day Trip</h4>
+      <ul>
+        <li><strong>Morning:</strong> Naggar Castle & temples</li>
+        <li><strong>Afternoon:</strong> Roerich Art Gallery & trout fishing</li>
+        <li><strong>Evening:</strong> Sunset café by Beas</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 6: Kasol & Manikaran</h4>
+      <ul>
+        <li><strong>Morning:</strong> Day trip to Kasol</li>
+        <li><strong>Afternoon:</strong> Visit Manikaran Sahib & hot springs</li>
+        <li><strong>Evening:</strong> Return to Manali</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 7: Culture & Farewell</h4>
+      <ul>
+        <li><strong>Morning:</strong> Visit Manu Temple & shop for woollens</li>
+        <li><strong>Afternoon:</strong> Relax & final exploration</li>
+        <li><strong>Evening:</strong> Departure</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  function openItinerary(evt, itineraryId) {
+    const contents = document.getElementsByClassName("itinerary-content");
+    for (let i = 0; i < contents.length; i++) {
+      contents[i].classList.remove("active");
+    }
+
+    const tabs = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove("active");
+    }
+
+    document.getElementById(itineraryId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+</script>
+
+</body>
+</html>

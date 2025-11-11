@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaipur Itineraries</title>
+  <link rel="stylesheet" href="re.css">
+</head>
+<body>
+
+  <section class="itineraries">
+    <h2>Recommended Jaipur Itineraries</h2>
+    
+    <div class="itinerary-tabs">
+      <button class="tab-btn active" onclick="openItinerary(event, '2day')">2-Day Trip</button>
+      <button class="tab-btn" onclick="openItinerary(event, '4day')">4-Day Trip</button>
+      <button class="tab-btn" onclick="openItinerary(event, '6day')">6-Day Trip</button>
+    </div>
+
+    <!-- 2-Day Trip -->
+    <div id="2day" class="itinerary-content active">
+      <h3>2-Day Jaipur Experience</h3>
+      <div class="day-plan">
+        <h4>Day 1</h4>
+        <ul>
+          <li><strong>Morning:</strong> Amber Fort & elephant ride</li>
+          <li><strong>Afternoon:</strong> City Palace & Jantar Mantar</li>
+          <li><strong>Evening:</strong> Hawa Mahal & street food tour</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 2</h4>
+        <ul>
+          <li><strong>Morning:</strong> Jaigarh Fort & Nahargarh Fort</li>
+          <li><strong>Afternoon:</strong> Albert Hall Museum</li>
+          <li><strong>Evening:</strong> Shopping at Bapu & Johari Bazaar</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4-Day Trip -->
+    <div id="4day" class="itinerary-content">
+      <h3>4-Day Jaipur Heritage Tour</h3>
+      <div class="day-plan">
+        <h4>Day 1</h4>
+        <ul>
+          <li><strong>Morning:</strong> Arrival in Jaipur & check-in</li>
+          <li><strong>Afternoon:</strong> Explore City Palace & Jantar Mantar</li>
+          <li><strong>Evening:</strong> Sound and Light Show at Amber Fort</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 2</h4>
+        <ul>
+          <li><strong>Morning:</strong> Amber Fort, elephant ride</li>
+          <li><strong>Afternoon:</strong> Jal Mahal & lunch at a heritage restaurant</li>
+          <li><strong>Evening:</strong> Local market walk and street food</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 3</h4>
+        <ul>
+          <li><strong>Morning:</strong> Nahargarh Fort hike & sunrise</li>
+          <li><strong>Afternoon:</strong> Albert Hall Museum & Central Park</li>
+          <li><strong>Evening:</strong> Cultural dance and dinner at Chokhi Dhani</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 4</h4>
+        <ul>
+          <li><strong>Morning:</strong> Visit Birla Temple & Galtaji Monkey Temple</li>
+          <li><strong>Afternoon:</strong> Shopping spree in Bapu Bazaar</li>
+          <li><strong>Evening:</strong> Departure or rest at hotel</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6-Day Trip -->
+    <div id="6day" class="itinerary-content">
+      <h3>6-Day Royal Rajasthan Tour (Jaipur Focus)</h3>
+      <div class="day-plan">
+        <h4>Day 1</h4>
+        <ul>
+          <li><strong>Morning:</strong> Arrive in Jaipur and check-in</li>
+          <li><strong>Afternoon:</strong> City Palace & Jantar Mantar</li>
+          <li><strong>Evening:</strong> Local dinner & walk near Albert Hall Museum</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 2</h4>
+        <ul>
+          <li><strong>Morning:</strong> Amber Fort tour and elephant ride</li>
+          <li><strong>Afternoon:</strong> Jal Mahal visit</li>
+          <li><strong>Evening:</strong> Sound and Light Show at Amber Fort</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 3</h4>
+        <ul>
+          <li><strong>Morning:</strong> Jaigarh Fort and cannon museum</li>
+          <li><strong>Afternoon:</strong> Nahargarh Fort and café</li>
+          <li><strong>Evening:</strong> Sunset views over the Pink City</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 4</h4>
+        <ul>
+          <li><strong>Morning:</strong> Birla Temple and Galtaji (Monkey Temple)</li>
+          <li><strong>Afternoon:</strong> Albert Hall Museum & Central Park</li>
+          <li><strong>Evening:</strong> Traditional dinner at Chokhi Dhani</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 5</h4>
+        <ul>
+          <li><strong>Morning:</strong> Hawa Mahal & street photography walk</li>
+          <li><strong>Afternoon:</strong> Local craft workshops (blue pottery, block printing)</li>
+          <li><strong>Evening:</strong> Light shopping & cultural folk show</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 6</h4>
+        <ul>
+          <li><strong>Morning:</strong> Leisure breakfast & last-minute shopping</li>
+          <li><strong>Afternoon:</strong> Spa or rooftop lunch</li>
+          <li><strong>Evening:</strong> Departure from Jaipur</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    function openItinerary(evt, itineraryId) {
+      const contents = document.getElementsByClassName("itinerary-content");
+      for (let i = 0; i < contents.length; i++) {
+        contents[i].classList.remove("active");
+      }
+
+      const tabs = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+      }
+
+      document.getElementById(itineraryId).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>

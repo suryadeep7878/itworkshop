@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Itinerary - Incredible India Trips</title>
+  <link rel="stylesheet" href="c.css">
+  <style>
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #138808;
+    }
+    .hotel-summary, .trip-summary, .cost-summary {
+      margin-bottom: 30px;
+    }
+    .hotel-card {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .hotel-card img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .hotel-details {
+      flex: 1;
+    }
+    .hotel-details h3 {
+      margin-top: 0;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #138808;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background-color: #0d6406;
+    }
+    .button-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .cost-summary p {
+      margin: 6px 0;
+    }
+    .cost-summary strong {
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Trip Itinerary</h1>
+  </header>
+  <div class="container">
+    <div class="trip-summary">
+      <h2>Trip Details</h2>
+      <p><strong>Destination:</strong> <span id="destination"></span></p>
+      <p><strong>Travel Date:</strong> <span id="date"></span></p>
+      <p><strong>Number of Travelers:</strong> <span id="travelers"></span></p>
+      <p><strong>Duration:</strong> <span id="days"></span> days</p>
+      <p><strong>Travel Mode:</strong> <span id="mode"></span></p>
+    </div>
+
+    <div class="hotel-summary">
+      <h2>Selected Hotel</h2>
+      <div id="selectedHotelContainer"></div>
+    </div>
+
+    <div class="cost-summary">
+      <h2>Total Cost Estimate</h2>
+      <p><strong>Hotel Cost:</strong> ₹<span id="hotelCost">0</span></p>
+      <p><strong>Travel Cost:</strong> ₹<span id="travelCost">0</span></p>
+      <p><strong>Food Charges:</strong> ₹<span id="foodCost">0</span></p>
+      <p><strong>Service Fee (10%):</strong> ₹<span id="serviceFee">0</span></p>
+      <p><strong>Tax (5% GST):</strong> ₹<span id="tax">0</span></p>
+      <hr>
+      <p><strong>Total Amount Payable:</strong> ₹<strong><span id="totalCost">0</span></strong></p>
+    </div>
+
+    <div class="button-group">
+      <button class="btn" onclick="window.location.href='wp2.html'">Back to Home</button>
+      <button class="btn"><a href="payment .html" style="text-decoration: none; color: white;">Book Now & Pay</a></button>
+    </div>
+  </div>
+
+  <script>
+    function loadTripDetails() {
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById("destination").textContent = params.get("destination") || "N/A";
+      document.getElementById("date").textContent = params.get("date") || "N/A";
+      document.getElementById("travelers").textContent = params.get("travelers") || "N/A";
+      document.getElementById("days").textContent = params.get("days") || "N/A";
+      document.getElementById("mode").textContent = params.get("mode") || "N/A";
+    }
+
+    function loadSelectedHotelAndCost() {
+      const container = document.getElementById("selectedHotelContainer");
+      const hotel = JSON.parse(localStorage.getItem("selectedHotel"));
+      const params = new URLSearchParams(window.location.search);
+
+      if (hotel) {
+        const days = parseInt(params.get("days")) || 1;
+        const travelers = parseInt(params.get("travelers")) || 1;
+        const hotelCost = hotel.price * days * travelers;
+        const foodCost = 500 * travelers * days;
+
+        container.innerHTML = `
+          <div class="hotel-card">
+            <img src="${hotel.image}" alt="${hotel.name}" />
+            <div class="hotel-details">
+              <h3>${hotel.name}</h3>
+              <p><strong>Price:</strong> ₹${hotel.price} per night</p>
+              <p><strong>Rating:</strong> ${'★'.repeat(hotel.rating)}${'☆'.repeat(5 - hotel.rating)}</p>
+              <p><strong>Amenities:</strong> ${hotel.amenities.join(", ")}</p>
+            </div>
+          </div>
+        `;
+
+        const mode = params.get("mode");
+        const travelCosts = { Car: 1000, Train: 2000, Flight: 4000 };
+        const travelCost = travelers* travelCosts[mode] || 0;
+
+        const serviceFee = 0.1 * (hotelCost + travelCost + foodCost);
+        const tax = 0.05 * (hotelCost + travelCost + foodCost + serviceFee);
+        const total = hotelCost + travelCost + foodCost + serviceFee + tax;
+
+        document.getElementById("hotelCost").textContent = hotelCost.toFixed(0);
+        document.getElementById("travelCost").textContent = travelCost.toFixed(0);
+        document.getElementById("foodCost").textContent = foodCost.toFixed(0);
+        document.getElementById("serviceFee").textContent = serviceFee.toFixed(0);
+        document.getElementById("tax").textContent = tax.toFixed(0);
+        document.getElementById("totalCost").textContent = total.toFixed(0);
+
+      } else {
+        container.innerHTML = "<p>No hotel selected.</p>";
+      }
+    }
+
+    function proceedToPayment() {
+      window.location.href = "payment.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      loadTripDetails();
+      loadSelectedHotelAndCost();
+    });
+  </script>
+</body>
+</html>

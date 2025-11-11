@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kashmir Itineraries</title>
+  <link rel="stylesheet" href="re.css">
+</head>
+<body>
+
+<section class="itineraries">
+  <h2>Recommended Kashmir Itineraries</h2>
+
+  <div class="itinerary-tabs">
+    <button class="tab-btn active" onclick="openItinerary(event, '3day')">3-Day Trip</button>
+    <button class="tab-btn" onclick="openItinerary(event, '5day')">5-Day Trip</button>
+    <button class="tab-btn" onclick="openItinerary(event, '7day')">7-Day Trip</button>
+  </div>
+
+  <!-- 3-Day Trip -->
+  <div id="3day" class="itinerary-content active">
+    <h3>3-Day Kashmir Escape</h3>
+    <div class="day-plan">
+      <h4>Day 1: Srinagar Serenity</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrival & check-in at a houseboat</li>
+        <li><strong>Afternoon:</strong> Shikara ride on Dal Lake</li>
+        <li><strong>Evening:</strong> Visit Mughal Gardens (Nishat & Shalimar)</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2: Gulmarg Adventure</h4>
+      <ul>
+        <li><strong>Morning:</strong> Drive to Gulmarg</li>
+        <li><strong>Afternoon:</strong> Gondola ride & snow activities</li>
+        <li><strong>Evening:</strong> Return to Srinagar</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 3: Local Delights</h4>
+      <ul>
+        <li><strong>Morning:</strong> Visit Hazratbal Shrine & Jamia Masjid</li>
+        <li><strong>Afternoon:</strong> Shop for handicrafts and dry fruits</li>
+        <li><strong>Evening:</strong> Departure</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5-Day Trip -->
+  <div id="5day" class="itinerary-content">
+    <h3>5-Day Kashmir Retreat</h3>
+    <div class="day-plan">
+      <h4>Day 1: Arrival in Srinagar</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrive and relax at a houseboat</li>
+        <li><strong>Afternoon:</strong> Shikara ride on Dal Lake</li>
+        <li><strong>Evening:</strong> Explore Nishat Bagh and Shalimar Bagh</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2: Gulmarg Getaway</h4>
+      <ul>
+        <li><strong>Morning:</strong> Scenic drive to Gulmarg</li>
+        <li><strong>Afternoon:</strong> Gondola ride and skiing</li>
+        <li><strong>Evening:</strong> Return to Srinagar</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 3: Pahalgam Paradise</h4>
+      <ul>
+        <li><strong>Morning:</strong> Drive to Pahalgam</li>
+        <li><strong>Afternoon:</strong> Visit Betaab Valley & Aru Valley</li>
+        <li><strong>Evening:</strong> Overnight in Pahalgam</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 4: Scenic Drive Back</h4>
+      <ul>
+        <li><strong>Morning:</strong> Enjoy Lidder River activities</li>
+        <li><strong>Afternoon:</strong> Return to Srinagar</li>
+        <li><strong>Evening:</strong> Shop at Lal Chowk</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 5: Culture & Departure</h4>
+      <ul>
+        <li><strong>Morning:</strong> Visit Hazratbal Shrine</li>
+        <li><strong>Afternoon:</strong> Local craft museum or floating market</li>
+        <li><strong>Evening:</strong> Departure</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 7-Day Trip -->
+  <div id="7day" class="itinerary-content">
+    <h3>7-Day Full Kashmir Tour</h3>
+    <div class="day-plan">
+      <h4>Day 1: Welcome to Srinagar</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrival & houseboat stay</li>
+        <li><strong>Afternoon:</strong> Relax & local exploration</li>
+        <li><strong>Evening:</strong> Shikara ride at sunset</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2: Gulmarg Excursion</h4>
+      <ul>
+        <li><strong>Morning:</strong> Drive to Gulmarg</li>
+        <li><strong>Afternoon:</strong> Gondola ride to Apharwat Peak</li>
+        <li><strong>Evening:</strong> Return to Srinagar</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 3: Explore Srinagar</h4>
+      <ul>
+        <li><strong>Morning:</strong> Mughal Gardens tour</li>
+        <li><strong>Afternoon:</strong> Hazratbal Mosque & Tulip Garden (seasonal)</li>
+        <li><strong>Evening:</strong> Local market walk</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 4: Pahalgam Getaway</h4>
+      <ul>
+        <li><strong>Morning:</strong> Travel to Pahalgam</li>
+        <li><strong>Afternoon:</strong> Sightseeing & Lidder River picnic</li>
+        <li><strong>Evening:</strong> Stay overnight in Pahalgam</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 5: Valley Views</h4>
+      <ul>
+        <li><strong>Morning:</strong> Visit Aru & Betaab Valley</li>
+        <li><strong>Afternoon:</strong> Horse riding or ziplining</li>
+        <li><strong>Evening:</strong> Return to Srinagar</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 6: Sonamarg Excursion</h4>
+      <ul>
+        <li><strong>Morning:</strong> Day trip to Sonamarg</li>
+        <li><strong>Afternoon:</strong> Thajiwas Glacier trek</li>
+        <li><strong>Evening:</strong> Return and relax</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 7: Culture & Farewell</h4>
+      <ul>
+        <li><strong>Morning:</strong> Handicraft shopping & heritage tour</li>
+        <li><strong>Afternoon:</strong> Relax at a café</li>
+        <li><strong>Evening:</strong> Departure</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  function openItinerary(evt, itineraryId) {
+    const contents = document.getElementsByClassName("itinerary-content");
+    for (let i = 0; i < contents.length; i++) {
+      contents[i].classList.remove("active");
+    }
+
+    const tabs = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove("active");
+    }
+
+    document.getElementById(itineraryId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kerala Itineraries</title>
+  <link rel="stylesheet" href="re.css">
+</head>
+<body>
+
+<section class="itineraries">
+  <h2>Recommended Kerala Itineraries</h2>
+
+  <div class="itinerary-tabs">
+    <button class="tab-btn active" onclick="openItinerary(event, '2day')">2-Day Trip</button>
+    <button class="tab-btn" onclick="openItinerary(event, '5day')">5-Day Trip</button>
+    <button class="tab-btn" onclick="openItinerary(event, '8day')">8-Day Trip</button>
+  </div>
+
+  <!-- 2-Day Trip -->
+  <div id="2day" class="itinerary-content active">
+    <h3>2-Day Kerala Glimpse</h3>
+    <div class="day-plan">
+      <h4>Day 1: Cochin City & Culture</h4>
+      <ul>
+        <li><strong>Morning:</strong> Visit Fort Kochi & Chinese Fishing Nets</li>
+        <li><strong>Afternoon:</strong> Explore Mattancherry Palace & Jewish Synagogue</li>
+        <li><strong>Evening:</strong> Kathakali performance and local dinner</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2: Backwater Bliss</h4>
+      <ul>
+        <li><strong>Morning:</strong> Drive to Alleppey</li>
+        <li><strong>Afternoon:</strong> Houseboat cruise with lunch</li>
+        <li><strong>Evening:</strong> Sunset over the backwaters & departure</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5-Day Trip -->
+  <div id="5day" class="itinerary-content">
+    <h3>5-Day Kerala Discovery</h3>
+    <div class="day-plan">
+      <h4>Day 1: Cochin Arrival & Heritage</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrive & explore Fort Kochi</li>
+        <li><strong>Afternoon:</strong> Visit Dutch Palace & Jewish Town</li>
+        <li><strong>Evening:</strong> Watch Kathakali at a cultural center</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2: Munnar Hills</h4>
+      <ul>
+        <li><strong>Morning:</strong> Drive to Munnar</li>
+        <li><strong>Afternoon:</strong> Visit Tea Museum & spice plantations</li>
+        <li><strong>Evening:</strong> Relax at scenic viewpoint</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 3: Munnar Exploration</h4>
+      <ul>
+        <li><strong>Morning:</strong> Eravikulam National Park</li>
+        <li><strong>Afternoon:</strong> Mattupetty Dam & Echo Point</li>
+        <li><strong>Evening:</strong> Local food experience</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 4: Alleppey Houseboat</h4>
+      <ul>
+        <li><strong>Morning:</strong> Drive to Alleppey</li>
+        <li><strong>Afternoon:</strong> Check-in to houseboat, cruise through backwaters</li>
+        <li><strong>Evening:</strong> Overnight on houseboat</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 5: Departure</h4>
+      <ul>
+        <li><strong>Morning:</strong> Houseboat checkout & travel back to Cochin</li>
+        <li><strong>Afternoon:</strong> Shopping at Lulu Mall or local markets</li>
+        <li><strong>Evening:</strong> Departure</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 8-Day Trip -->
+  <div id="8day" class="itinerary-content">
+    <h3>8-Day Kerala Grand Tour</h3>
+    <div class="day-plan">
+      <h4>Day 1: Cochin Welcome</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrive in Cochin, check-in</li>
+        <li><strong>Afternoon:</strong> Fort Kochi sightseeing</li>
+        <li><strong>Evening:</strong> Kathakali & seafood dinner</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2: Athirappilly Falls</h4>
+      <ul>
+        <li><strong>Morning:</strong> Day trip to Athirappilly Waterfalls</li>
+        <li><strong>Afternoon:</strong> Picnic by the falls</li>
+        <li><strong>Evening:</strong> Return to Cochin</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 3: Drive to Munnar</h4>
+      <ul>
+        <li><strong>Morning:</strong> Scenic drive through hills</li>
+        <li><strong>Afternoon:</strong> Tea museum & spice plantations</li>
+        <li><strong>Evening:</strong> Sunset at Pothamedu Viewpoint</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 4: Munnar Full Day</h4>
+      <ul>
+        <li><strong>Morning:</strong> Eravikulam National Park</li>
+        <li><strong>Afternoon:</strong> Mattupetty Dam & boating</li>
+        <li><strong>Evening:</strong> Local cuisine experience</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 5: Thekkady Jungle</h4>
+      <ul>
+        <li><strong>Morning:</strong> Travel to Thekkady</li>
+        <li><strong>Afternoon:</strong> Periyar Wildlife Sanctuary boat safari</li>
+        <li><strong>Evening:</strong> Martial arts or tribal dance show</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 6: Alleppey Houseboat</h4>
+      <ul>
+        <li><strong>Morning:</strong> Drive to Alleppey</li>
+        <li><strong>Afternoon:</strong> Board houseboat & cruise</li>
+        <li><strong>Evening:</strong> Overnight stay on the backwaters</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 7: Kovalam Beach</h4>
+      <ul>
+        <li><strong>Morning:</strong> Travel to Kovalam</li>
+        <li><strong>Afternoon:</strong> Relax at Lighthouse Beach</li>
+        <li><strong>Evening:</strong> Sunset by the Arabian Sea</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 8: Trivandrum & Departure</h4>
+      <ul>
+        <li><strong>Morning:</strong> Visit Padmanabhaswamy Temple & Napier Museum</li>
+        <li><strong>Afternoon:</strong> Last-minute shopping</li>
+        <li><strong>Evening:</strong> Departure from Trivandrum</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  function openItinerary(evt, itineraryId) {
+    const contents = document.getElementsByClassName("itinerary-content");
+    for (let i = 0; i < contents.length; i++) {
+      contents[i].classList.remove("active");
+    }
+
+    const tabs = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove("active");
+    }
+
+    document.getElementById(itineraryId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+</script>
+
+</body>
+</html>

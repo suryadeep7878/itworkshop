@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goa Itineraries</title>
+  <link rel="stylesheet" href="re.css">
+</head>
+<body>
+
+<section class="itineraries">
+  <h2>Recommended Goa Itineraries</h2>
+
+  <div class="itinerary-tabs">
+    <button class="tab-btn active" onclick="openItinerary(event, '2day')">2-Day Trip</button>
+    <button class="tab-btn" onclick="openItinerary(event, '4day')">4-Day Trip</button>
+    <button class="tab-btn" onclick="openItinerary(event, '6day')">6-Day Trip</button>
+  </div>
+
+  <!-- 2-Day Itinerary -->
+  <div id="2day" class="itinerary-content active">
+    <h3>2-Day Goa Getaway</h3>
+    <div class="day-plan">
+      <h4>Day 1</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrive and relax at Calangute Beach</li>
+        <li><strong>Afternoon:</strong> Visit Fort Aguada</li>
+        <li><strong>Evening:</strong> Enjoy beachside dinner at Baga</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2</h4>
+      <ul>
+        <li><strong>Morning:</strong> Explore Old Goa Churches</li>
+        <li><strong>Afternoon:</strong> Spice plantation tour</li>
+        <li><strong>Evening:</strong> Sunset cruise on Mandovi River</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4-Day Itinerary -->
+  <div id="4day" class="itinerary-content">
+    <h3>4-Day Goa Adventure</h3>
+    <div class="day-plan">
+      <h4>Day 1</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrive and relax at your resort</li>
+        <li><strong>Afternoon:</strong> North Goa beach hopping (Calangute, Baga, Anjuna)</li>
+        <li><strong>Evening:</strong> Seafood dinner at beach shack</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2</h4>
+      <ul>
+        <li><strong>Morning:</strong> Visit Aguada Fort and Chapora Fort</li>
+        <li><strong>Afternoon:</strong> Vagator Beach</li>
+        <li><strong>Evening:</strong> Party at a beach club</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 3</h4>
+      <ul>
+        <li><strong>Morning:</strong> Explore Old Goa (Se Cathedral, Basilica of Bom Jesus)</li>
+        <li><strong>Afternoon:</strong> Visit a spice plantation</li>
+        <li><strong>Evening:</strong> Mandovi River cruise</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 4</h4>
+      <ul>
+        <li><strong>Morning:</strong> Shopping at Panaji</li>
+        <li><strong>Afternoon:</strong> Visit Dona Paula viewpoint</li>
+        <li><strong>Evening:</strong> Depart from Goa</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6-Day Itinerary -->
+  <div id="6day" class="itinerary-content">
+    <h3>6-Day Goa Exploration</h3>
+    <div class="day-plan">
+      <h4>Day 1</h4>
+      <ul>
+        <li><strong>Morning:</strong> Arrival and beach relaxation at Candolim</li>
+        <li><strong>Afternoon:</strong> Aguada Fort</li>
+        <li><strong>Evening:</strong> Beach dinner and music</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 2</h4>
+      <ul>
+        <li><strong>Morning:</strong> North Goa beaches and Chapora Fort</li>
+        <li><strong>Afternoon:</strong> Visit Anjuna flea market</li>
+        <li><strong>Evening:</strong> Sunset at Vagator</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 3</h4>
+      <ul>
+        <li><strong>Morning:</strong> Old Goa Churches tour</li>
+        <li><strong>Afternoon:</strong> Spice farm experience</li>
+        <li><strong>Evening:</strong> Cruise or casino night</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 4</h4>
+      <ul>
+        <li><strong>Morning:</strong> South Goa: Colva Beach and Cabo de Rama</li>
+        <li><strong>Afternoon:</strong> Palolem Beach visit</li>
+        <li><strong>Evening:</strong> Relaxed dinner at seaside café</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 5</h4>
+      <ul>
+        <li><strong>Morning:</strong> Water sports at Benaulim or Candolim</li>
+        <li><strong>Afternoon:</strong> Visit Dona Paula and Miramar Beach</li>
+        <li><strong>Evening:</strong> Explore Panjim nightlife</li>
+      </ul>
+    </div>
+    <div class="day-plan">
+      <h4>Day 6</h4>
+      <ul>
+        <li><strong>Morning:</strong> Leisurely breakfast and spa</li>
+        <li><strong>Afternoon:</strong> Final shopping at local markets</li>
+        <li><strong>Evening:</strong> Departure</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  function openItinerary(evt, itineraryId) {
+    const contents = document.getElementsByClassName("itinerary-content");
+    for (let i = 0; i < contents.length; i++) {
+      contents[i].classList.remove("active");
+    }
+
+    const tabs = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove("active");
+    }
+
+    document.getElementById(itineraryId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+</script>
+
+</body>
+</html>

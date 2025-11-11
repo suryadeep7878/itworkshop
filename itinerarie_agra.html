@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>itineraries</title>
+  <link rel="stylesheet" href="re.css">
+</head>
+<body>
+  
+  <section class="itineraries">
+    <h2>Recommended Itineraries</h2>
+    
+    <div class="itinerary-tabs">
+      <button class="tab-btn active" onclick="openItinerary(event, '3day')">3-Day Trip</button>
+      <button class="tab-btn" onclick="openItinerary(event, '5day')">5-Day Trip</button>
+      <button class="tab-btn" onclick="openItinerary(event, '7day')">7-Day Trip</button>
+    </div>
+    
+    <div id="3day" class="itinerary-content active">
+      <h3>3-Day Agra Experience</h3>
+      <div class="day-plan">
+        <h4>Day 1: Taj Mahal Exploration</h4>
+        <ul>
+          <li><strong>Morning:</strong> Watch sunrise at Taj Mahal</li>
+          <li><strong>Afternoon:</strong> Visit Agra Fort</li>
+          <li><strong>Evening:</strong> Shopping at Sadar Bazaar</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 2: Historical Sites</h4>
+        <ul>
+          <li><strong>Morning:</strong> Fatehpur Sikri tour</li>
+          <li><strong>Afternoon:</strong> Itmad-ud-Daulah's Tomb</li>
+          <li><strong>Evening:</strong> Mehtab Bagh sunset view</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 3: Local Culture</h4>
+        <ul>
+          <li><strong>Morning:</strong> Food tour of Old Agra</li>
+          <li><strong>Afternoon:</strong> Marble crafting workshop</li>
+          <li><strong>Evening:</strong> Mohabbat The Taj Show</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="5day" class="itinerary-content">
+      <h3>5-Day Agra & Surroundings</h3>
+      <div class="day-plan">
+        <h4>Day 1: Arrival & Agra Highlights</h4>
+        <ul>
+          <li><strong>Morning:</strong> Arrive in Agra, check-in</li>
+          <li><strong>Afternoon:</strong> Visit Taj Mahal</li>
+          <li><strong>Evening:</strong> Dinner with a view of the monument</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 2: Agra Fort & Local Bazaars</h4>
+        <ul>
+          <li><strong>Morning:</strong> Tour Agra Fort</li>
+          <li><strong>Afternoon:</strong> Explore Kinari Bazaar</li>
+          <li><strong>Evening:</strong> Street food tasting tour</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 3: Fatehpur Sikri & Crafts</h4>
+        <ul>
+          <li><strong>Morning:</strong> Visit Fatehpur Sikri</li>
+          <li><strong>Afternoon:</strong> Marble & zardozi workshop</li>
+          <li><strong>Evening:</strong> Cultural dance show</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 4: Wildlife & Nature</h4>
+        <ul>
+          <li><strong>Morning:</strong> Trip to Keetham Lake (Sur Sarovar)</li>
+          <li><strong>Afternoon:</strong> Bird watching or bear rescue center</li>
+          <li><strong>Evening:</strong> Local dinner experience</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 5: Leisure & Departure</h4>
+        <ul>
+          <li><strong>Morning:</strong> Spa or leisure morning</li>
+          <li><strong>Afternoon:</strong> Last-minute shopping</li>
+          <li><strong>Evening:</strong> Departure</li>
+        </ul>
+      </div>      
+    </div>
+    
+    <div id="7day" class="itinerary-content">
+      <h3>7-Day Golden Triangle Tour</h3>
+      <div class="day-plan active">
+        <h4>Day 1: Arrival in Delhi</h4>
+        <ul>
+          <li><strong>Morning:</strong> Arrive and settle in</li>
+          <li><strong>Afternoon:</strong> India Gate and Humayun's Tomb</li>
+          <li><strong>Evening:</strong> Dilli Haat visit</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 2: Delhi Heritage</h4>
+        <ul>
+          <li><strong>Morning:</strong> Red Fort and Jama Masjid</li>
+          <li><strong>Afternoon:</strong> Chandni Chowk food trail</li>
+          <li><strong>Evening:</strong> Light & Sound Show at Red Fort</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 3: Agra Sights</h4>
+        <ul>
+          <li><strong>Morning:</strong> Travel to Agra</li>
+          <li><strong>Afternoon:</strong> Taj Mahal & Agra Fort</li>
+          <li><strong>Evening:</strong> Sunset at Mehtab Bagh</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 4: Local Agra</h4>
+        <ul>
+          <li><strong>Morning:</strong> Itmad-ud-Daulah & Baby Taj</li>
+          <li><strong>Afternoon:</strong> Marble crafts workshop</li>
+          <li><strong>Evening:</strong> Mohabbat The Taj show</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 5: Fatehpur Sikri</h4>
+        <ul>
+          <li><strong>Morning:</strong> Drive to Fatehpur Sikri</li>
+          <li><strong>Afternoon:</strong> Explore ancient city & lunch</li>
+          <li><strong>Evening:</strong> Return to Agra</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 6: Jaipur Bound</h4>
+        <ul>
+          <li><strong>Morning:</strong> Travel to Jaipur</li>
+          <li><strong>Afternoon:</strong> City Palace & Jantar Mantar</li>
+          <li><strong>Evening:</strong> Shopping at Bapu Bazaar</li>
+        </ul>
+      </div>
+      <div class="day-plan">
+        <h4>Day 7: Jaipur Wrap-up</h4>
+        <ul>
+          <li><strong>Morning:</strong> Amber Fort & elephant ride</li>
+          <li><strong>Afternoon:</strong> Hawa Mahal & lunch at LMB</li>
+          <li><strong>Evening:</strong> Departure from Jaipur</li>
+        </ul>
+      </div>
+      
+    </div>
+  </section>
+  <script>
+    function openItinerary(evt, itineraryId) {
+      const contents = document.getElementsByClassName("itinerary-content");
+      for (let i = 0; i < contents.length; i++) {
+        contents[i].classList.remove("active");
+      }
+  
+      const tabs = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+      }
+      document.getElementById(itineraryId).classList.add("active");
+  
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+  
+</body>
+</html>

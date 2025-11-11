@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Accommodation - Incredible India Trips</title>
+  <link rel="stylesheet" href="c.css">
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    .booking-summary, .filters {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .filters {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .filter-group {
+      flex: 1;
+      min-width: 200px;
+    }
+    .hotels-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 20px;
+    }
+    .hotel-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .hotel-card:hover {
+      transform: translateY(-5px);
+    }
+    .hotel-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+.hotel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.hotel-image img:hover {
+  transform: scale(1.05);
+}
+
+    .hotel-details {
+      padding: 15px;
+    }
+    .hotel-name {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .hotel-price {
+      color: #138808;
+      font-weight: bold;
+    }
+    .amenities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+    .amenity {
+      background: #eee;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    .select-btn {
+      margin-top: 10px;
+      padding: 10px;
+      background: #138808;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+    .select-btn:hover {
+      background: #0f5f05;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Select Your Accommodation</h1>
+  </header>
+  <div class="container">
+    <div class="booking-summary">
+      <h2>Booking Summary</h2>
+      <div id="bookingSummary"></div>
+    </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label>Price Range</label>
+        <select id="priceRange">
+          <option value="all">All</option>
+          <option value="budget">Under ₹2000</option>
+          <option value="mid">₹2000 - ₹5000</option>
+          <option value="luxury">Above ₹5000</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Minimum Rating</label>
+        <select id="rating">
+          <option value="0">All</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Amenities</label>
+        <select id="amenity">
+          <option value="all">All</option>
+          <option value="pool">Swimming Pool</option>
+          <option value="wifi">Free Wi-Fi</option>
+          <option value="breakfast">Free Breakfast</option>
+          <option value="spa">Spa</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="hotelsContainer" class="hotels-container"></div>
+  </div>
+
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+      <h2>Hotel Selected!</h2>
+      <p>Your accommodation has been selected successfully.</p>
+      <button class="select-btn" onclick="redirectToItinerary()">View Itinerary</button>
+      <button onclick="window.location.href='wp2.html'" class="select-btn" style="margin-top: 10px;">Back to Home</button>
+    </div>
+  </div>
+
+  <script>
+    const hotels = { Jaipur: [
+        { name: "Gajner Palace", price: 7500, rating: 5, amenities: ["Free Wi-Fi", "Swimming Pool", "Spa", "Breakfast"], image: "gajner.jpg" },
+        { name: "Pink City Hotel", price: 3500, rating: 4, amenities: ["Free Wi-Fi", "Breakfast"], image: "pink.avif" },
+        { name: "Hotel Darohar Palace", price: 1800, rating: 3, amenities: ["Free Wi-Fi"], image: "darohar.jpg" }
+      ],
+      Goa: [
+        { name: " Dallas Beach Resort", price: 8000, rating: 5, amenities: ["Swimming Pool", "Free Wi-Fi", "Spa", "Breakfast"], image: "dallas.webp" },
+        { name: "Calangute Inn", price: 4000, rating: 4, amenities: ["Free Wi-Fi", "Restaurant"], image: "calangute.jpg" },
+        { name: "Laurien Hostel", price: 800, rating: 3, amenities: ["Free Wi-Fi"], image: "laurien.webp" }
+      ],
+      Kashmir: [
+        { name: "Houseboat Stay", price: 9000, rating: 5, amenities: ["Lake View", "Free Wi-Fi", "Spa"], image: "houseboat.jpg" },
+        { name: "Mountain Lodge", price: 4200, rating: 4, amenities: ["Heater", "Free Wi-Fi"], image: "mount.jpg" },
+        { name: "Moustache Srinagar", price: 1600, rating: 3, amenities: ["Free Wi-Fi"], image: "moustache.jpg" }
+      ],
+      Agra: [
+        { name: "Taj View Hotel", price: 7000, rating: 5, amenities: ["Taj Mahal View", "Swimming Pool", "Free Wi-Fi"], image: "taj-hotel.jpg" },
+        { name: "Heritage Stay", price: 3200, rating: 4, amenities: ["Free Wi-Fi", "Breakfast"], image: "heritage.jpg" },
+        { name: "Taj Haveli", price: 1400, rating: 3, amenities: ["Free Wi-Fi"], image: "taj-haveli.jpg" }
+      ],
+      Manali: [
+        { name: "River View Resort", price: 6200, rating: 5, amenities: ["River View", "Free Wi-Fi", "Breakfast"], image: "river.jpg" },
+        { name: "Snow Inn", price: 3000, rating: 4, amenities: ["Heater", "Free Wi-Fi"], image: "snow.avif" },
+        { name: "Hotel Mountain Face", price: 1000, rating: 3, amenities: ["Free Wi-Fi"], image: "mountain-face.jpg" }
+      ],
+      Kerala: [
+        { name: "Backwater Houseboat", price: 8500, rating: 5, amenities: ["Private Houseboat", "Free Wi-Fi", "Spa"], image: "backwater.jpg" },
+        { name: "Spice Garden Inn", price: 4000, rating: 4, amenities: ["Swimming Pool", "Free Wi-Fi"], image: "spice.jpg" },
+        { name: "Beach Stay", price: 2000, rating: 3, amenities: ["Beach Access", "Free Wi-Fi"], image: "beach.jpg" }
+      ] };
+
+    function getParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        destination: params.get('destination') || 'Jaipur',
+        date: params.get('date') || '',
+        travelers: params.get('travelers') || '1',
+        days: params.get('days') || '1',
+        mode: params.get('mode') || 'Car'
+      };
+    }
+
+    function displayBookingSummary(params) {
+      document.getElementById("bookingSummary").innerHTML = `
+        <p><strong>Destination:</strong> ${params.destination}</p>
+        <p><strong>Date:</strong> ${params.date}</p>
+        <p><strong>Travelers:</strong> ${params.travelers}</p>
+        <p><strong>Duration:</strong> ${params.days} day(s)</p>
+        <p><strong>Mode:</strong> ${params.mode}</p>
+      `;
+    }
+
+    function filterHotels(hotelList) {
+      const priceFilter = document.getElementById("priceRange").value;
+      const ratingFilter = parseInt(document.getElementById("rating").value);
+      const amenityFilter = document.getElementById("amenity").value;
+
+      return hotelList.filter(hotel => {
+        let priceOk = true;
+        if (priceFilter === "budget") priceOk = hotel.price < 2000;
+        else if (priceFilter === "mid") priceOk = hotel.price >= 2000 && hotel.price <= 5000;
+        else if (priceFilter === "luxury") priceOk = hotel.price > 5000;
+
+        let ratingOk = hotel.rating >= ratingFilter;
+
+        let amenityOk = true;
+        if (amenityFilter !== "all") {
+          const amenityMap = {
+            pool: "Swimming Pool",
+            wifi: "Free Wi-Fi",
+            breakfast: "Free Breakfast",
+            spa: "Spa"
+          };
+          amenityOk = hotel.amenities.includes(amenityMap[amenityFilter]);
+        }
+
+        return priceOk && ratingOk && amenityOk;
+      });
+    }
+
+    function showConfirmation(hotel) {
+      localStorage.setItem('selectedHotel', JSON.stringify(hotel));
+      document.getElementById("confirmationModal").style.display = "flex";
+      const params = new URLSearchParams(window.location.search);
+// window.location.href = 'itinerary.html?' + params.toString();
+
+    }
+
+    function showHotels(hotelList) {
+      const container = document.getElementById("hotelsContainer");
+      container.innerHTML = "";
+
+      hotelList.forEach(hotel => {
+        const div = document.createElement("div");
+        div.className = "hotel-card";
+        div.innerHTML = `
+          <div class="hotel-image">
+            <img src="${hotel.image}" alt="${hotel.name}">
+          </div>
+          <div class="hotel-details">
+            <h3 class="hotel-name">${hotel.name}</h3>
+            <div class="hotel-rating">${'★'.repeat(hotel.rating)}${'☆'.repeat(5 - hotel.rating)}</div>
+            <p class="hotel-price">₹${hotel.price} per night</p>
+            <div class="amenities">
+              ${hotel.amenities.map(a => `<span class="amenity">${a}</span>`).join('')}
+            </div>
+            <button class="select-btn" onclick='showConfirmation(${JSON.stringify(hotel)})'>Select</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function initPage() {
+      const params = getParams();
+      displayBookingSummary(params);
+      const hotelList = hotels[params.destination] || hotels["Jaipur"];
+      showHotels(hotelList);
+
+      const filters = document.querySelectorAll("#priceRange, #rating, #amenity");
+      filters.forEach(filter => {
+        filter.addEventListener("change", () => {
+          const filtered = filterHotels(hotelList);
+          showHotels(filtered);
+        });
+      });
+    }
+    function redirectToItinerary() {
+  const params = new URLSearchParams(window.location.search);
+  window.location.href = 'itinerary.html?' + params.toString();
+}
+
+    document.addEventListener("DOMContentLoaded", initPage);
+  </script>
+</body>
+</html>
